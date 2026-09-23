@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamPulse - İctimai Video Platforması</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-play-circle"></i> StreamPulse
+        </div>
+        <div class="search-box">
+            <i class="fa-solid fa-search"></i>
+            <input type="text" placeholder="Video axtar..." id="searchInput">
+        </div>
+        <div class="user-profile">
+            <i class="fa-solid fa-user-circle"></i> İzləyici / İstifadəçi
+        </div>
+    </header>
+
+    <main class="main-container">
+        
+        <!-- Video İzləmə Ekranı -->
+        <section class="content-area">
+            <div class="video-player-wrapper" id="playerWrapper">
+                <div class="no-video-placeholder" id="noVideoMessage">
+                    <i class="fa-solid fa-film"></i>
+                    <h2>Zəhmət olmasa izləmək üçün sağdakı siyahıdan bir video seçin</h2>
+                </div>
+                <video id="mainVideo" controls style="display: none;">
+                    Brauzeriniz video dəstəkləmir.
+                </video>
+            </div>
+
+            <div class="video-details" id="videoDetails" style="display: none;">
+                <h1 id="videoTitle"></h1>
+                <p id="videoDescription" class="video-desc"></p>
+                <div class="video-actions-bar">
+                    <div class="channel-info">
+                        <div class="avatar" id="uploaderAvatar">İ</div>
+                        <div>
+                            <h4 id="uploaderName">İstifadəçi</h4>
+                            <small>Müəllif</small>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button id="likeBtn"><i class="fa-solid fa-thumbs-up"></i> <span id="likeCount">0</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Şərhlər -->
+            <div class="comments-section" id="commentsSection" style="display: none;">
+                <h3>Şərhlər</h3>
+                <div class="comment-input-area">
+                    <input type="text" id="commentInput" placeholder="Açıq və səviyyəli şərh yazın...">
+                    <button id="addCommentBtn"><i class="fa-solid fa-paper-plane"></i> Göndər</button>
+                </div>
+                <div id="commentsList" class="comments-list"></div>
+            </div>
+        </section>
+
+        <!-- Sağ Tərəf: Video Yükləmə (Hər kəs üçün açıq) və Siyahı -->
+        <aside class="sidebar">
+            
+            <div class="upload-panel">
+                <h3><i class="fa-solid fa-cloud-arrow-up"></i> Video Paylaş</h3>
+                <input type="text" id="authorInput" placeholder="Adınız və ya Kanalınız...">
+                <input type="text" id="newTitleInput" placeholder="Video başlığı...">
+                <textarea id="newDescInput" placeholder="Video haqqında məlumat..."></textarea>
+                
+                <label for="videoFileInput" class="file-upload-label" id="fileLabel">
+                    <i class="fa-solid fa-file-video"></i> Videonu Seç (Maks. həcmə diqqət edin)
+                </label>
+                <input type="file" id="videoFileInput" accept="video/*" style="display: none;">
+                
+                <button id="addVideoBtn">Sayta Yüklə</button>
+            </div>
+
+            <h3>Bütün Videolar</h3>
+            <div id="videoListContainer" class="video-list">
+                <p class="empty-list-text" id="emptyListText">Videolar yüklənir...</p>
+            </div>
+        </aside>
+
+    </main>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
